@@ -1,2 +1,3 @@
-# popup
-Created with CodeSandbox
+# Popup library!
+
+A simple alert/prompt library I made! =)
