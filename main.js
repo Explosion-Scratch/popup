@@ -109,7 +109,7 @@ document.body.appendChild(
 	(() => {
 		var style = document.createElement("STYLE");
 		style.innerHTML = styles;
-		return styles;
+		return style;
 	})(),
 );
 // -----------------------------
