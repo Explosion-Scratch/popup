@@ -1,9 +1,9 @@
 let styles = `#popup,#popup *{box-sizing:border-box}#popup :focus{outline:0}#popup-bg{z-index:99;background:#0002;backdrop-filter:blur(10px);position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:100vw;height:100vh;padding:0;margin:0}#popup{z-index:100;animation-name:slide-in;animation-duration:.3s;animation-direction:forwards;transition:all .3s ease;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;padding:20px;border-radius:5px;box-shadow:2px 2px 4px #0002;width:50vw;min-width:250px;max-width:300px}#popup input{transition:border-color .3s ease,box-shadow .3s ease;border:1px solid #d3d3d3;margin:0 auto}#popup input[type=text]{display:block;width:100%;padding:10px;border-radius:5px}#popup input:focus{box-shadow:0 0 0 5px #0001}#popup button:focus{box-shadow:0 0 0 5px #17a2b733}#popup button{cursor:pointer;transition:background-color .3s ease,box-shadow .3s ease,opacity .3s ease;background:#17a2b7;color:#fff;border:none;padding:8px;margin-top:10px;border-radius:5px}#popup-text{max-height:150px;overflow-y:scroll}#popup button:hover{background:#0e97ac}#popup button:disabled{opacity:.5;cursor:not-allowed}button#popup-cancel{background:0 0;color:#333;border:1px solid #d3d3d3;margin-left:5px}button#popup-cancel:hover{color:#000;background:0 0}#popup-title{margin:0}.popup-closed{opacity:0;top:0;transform:translate(-50%,50%)}@keyframes slide-in{0%{opacity:0;top:0;transform:translate(-50%,50%)}100%{opacity:1;top:50%;transform:translate(-50%,-50%)}}`;
-(() => {
+window.onload = () => {
 	var style = document.createElement("STYLE");
 	style.innerHTML = styles;
 	document.body.appendChild(style);
-})();
+};
 // -----------------------------
 // OPTIONS
 // -----------------------------
