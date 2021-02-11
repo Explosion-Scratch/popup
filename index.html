@@ -1,225 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
-		<script src="https://cdn.jsdelivr.net/gh/explosion-scratch/popup/src.min.js"></script>
-		<title>Popup windows</title>
-	</head>
-	<body>
-		<h1>Prompt and alert!</h1>
-		<button
-			onclick='prompt({inputtest: "/^[0-9]+$/.test(inputval())",title: "Please enter your social security number!", text:"JUST KIDDING (btw it only takes numbers!)"}, (val)=>{alert("You entered: " + val)}, () => {alert({title: "😠 Badbadbad", text: "Canceling my prompt makes me sad 😞", buttontext: "😞 (Waaah)"})})'
-		>
-			Prompt!
-		</button>
-		<button onclick='alert("Alerts!!").then(()=>{alert("Yeah, whatever")})'>
-			Alert!
-		</button>
-		<h2>Usage:</h2>
-		<p>
-			<span id="code">prompt(options, success_callback, cancel_callback)</span>
-			Simple usage. You can use a string in place of options for a behaviour
-			similar to the default prompt() and alert() methods.
-		</p>
-		<h3>Options</h3>
-		<p>
-			Options should be an object passed to the prompt engine. It allows
-			features such as titles, subtitles, custom inputs, and more. Each item is
-			specified below.
-		</p>
-		<ul>
-			<li>
-				<span id="code">inputtest</span> The code to run to test the input on,
-				you can get the input's value using <span id="code">inputval()</span>,
-				and the input element using
-				<span id="code">inputel()</span>.<br /><button
-					onclick='prompt({text: "Make sure input is only the letters A-C", inputtest: "/^[A-Ca-c]+$/.test(inputval())"})'
-				>
-					Try it
-				</button>
-			</li>
-			<li>
-				<span id="code">title</span> Set's the title of the prompt.<br /><button
-					onclick='alert({title: "This is the title", text: "This is the text"})'
-				>
-					Try it
-				</button>
-			</li>
-			<li>
-				<span id="code">buttontext</span> The text of the submit/ok button.<br /><button
-					onclick='alert({text: "Custom submit button", buttontext: "Click me!!!"})'
-				>
-					Try it
-				</button>
-			</li>
-			<li>
-				<span id="code">input</span> A string representing the HTML of the
-				input.<br /><button
-					onclick='prompt({text: "Custom input", input: "<label><input type=\"color\">&nbsp;&nbsp;Color</label><br>"})'
-				>
-					Try it
-				</button>
-			</li>
-			<li>
-				<span id="code">returnval</span>The value to return from the prompt.<br /><button
-					onclick='prompt({text: "Return the current date", returnval: "(new Date()).toString()"}).then((val)=>alert("Returned: " + val))'
-				>
-					Try it
-				</button>
-			</li>
-			<li>
-				<span id="code">cancelbutton</span> Defaults to true. A boolean of
-				whether the prompt has a cancel button or not.<br /><button
-					onclick='prompt({text: "This prompt does not have a cancel button", cancelbutton: false})'
-				>
-					Try it
-				</button>
-			</li>
-			<li>
-				<span id="code">backgroundclick</span> A boolean value indicating
-				whether clicking the background should cancel the prompt. Defaults to
-				false. <br /><button
-					onclick='prompt({text: "Click the background to get rid of this prompt", backgroundclick: true})'
-				>
-					Try it
-				</button>
-			</li>
-		</ul>
-		<h3>Callbacks</h3>
-		<p>
-			Each prompt/alert returns a promise, for
-			<span id="code">prompt()</span> the return value contains the
-			<span id="code">returnval</span> property of options, or the value of the
-			input. For <span id="code">alert()</span> it fulfills the promise after
-			the user clicks the close button.
-		</p>
-		<ul>
-			<h4>Using promises:</h4>
-			<li>
-				<span id="code"
-					>prompt("Test").then((value) => {alert(value)}).then(()=>{alert("You
-					clicked close on that alert")})</span
-				>
-				Using promises to chain a prompt then 2 alerts together.<br /><button
-					onclick='prompt("Test").then((value) => alert(value)).then(()=>{alert("You clicked close on that  alert")})'
-				>
-					Try it
-				</button>
-			</li>
-			<h4>Using callbacks</h4>
-			<li>
-				<span id="code"
-					>prompt("Test", (value) => {console.log(value)},
-					()=>{console.log("There was an error")})</span
-				>
-				Use success and reject callbacks.<br /><button
-					onclick='prompt("Test", (value) => {console.log(value)}, ()=>{console.log("There was an error")})'
-				>
-					Try it
-				</button>
-			</li>
-			<h4>Using await&async</h4>
-			<li>
-				<span id="code"
-					>async function(){var val = await prompt(); console.log(val)}</span
-				>
-			</li>
-		</ul>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="main.js"></script>
+    <title>Popup windows</title>
+  </head>
+  <body onload="confirm('Test')">
+    <h1>Prompt and alert!</h1>
+    <button
+      onclick='prompt({inputtest: "/^[0-9]+$/.test(inputval())",title: "Please enter your social security number!", text:"JUST KIDDING (btw it only takes numbers!)"}, (val)=>{alert("You entered: " + val)}, () => {alert({title: "😠 Badbadbad", text: "Canceling my prompt makes me sad 😞", buttontext: "😞 (Waaah)"})})'
+    >
+      Prompt!
+    </button>
+    <button onclick='alert("Alerts!!").then(()=>{alert("Yeah, whatever")})'>
+      Alert!
+    </button>
+    <h2>Usage:</h2>
+    <p>
+      <span id="code">prompt(options, success_callback, cancel_callback)</span>
+      Simple usage. You can use a string in place of options for a behaviour
+      similar to the default prompt() and alert() methods.
+    </p>
+    <h3>Options</h3>
+    <p>
+      Options should be an object passed to the prompt engine. It allows
+      features such as titles, subtitles, custom inputs, and more. Each item is
+      specified below.
+    </p>
+    <ul>
+      <li>
+        <span id="code">inputtest</span> The code to run to test the input on,
+        you can get the input's value using <span id="code">inputval()</span>,
+        and the input element using
+        <span id="code">inputel()</span>.<br /><button
+          onclick='prompt({text: "Make sure input is only the letters A-C", inputtest: "/^[A-Ca-c]+$/.test(inputval())"})'
+        >
+          Try it
+        </button>
+      </li>
+      <li>
+        <span id="code">title</span> Set's the title of the prompt.<br /><button
+          onclick='alert({title: "This is the title", text: "This is the text"})'
+        >
+          Try it
+        </button>
+      </li>
+      <li>
+        <span id="code">buttontext</span> The text of the submit/ok button.<br /><button
+          onclick='alert({text: "Custom submit button", buttontext: "Click me!!!"})'
+        >
+          Try it
+        </button>
+      </li>
+      <li>
+        <span id="code">input</span> A string representing the HTML of the
+        input.<br /><button
+          onclick='prompt({text: "Custom input", input: "<label><input type=\"color\">&nbsp;&nbsp;Color</label><br>"})'
+        >
+          Try it
+        </button>
+      </li>
+      <li>
+        <span id="code">returnval</span>The value to return from the prompt.<br /><button
+          onclick='prompt({text: "Return the current date", returnval: "(new Date()).toString()"}).then((val)=>alert("Returned: " + val))'
+        >
+          Try it
+        </button>
+      </li>
+      <li>
+        <span id="code">cancelbutton</span> Defaults to true. A boolean of
+        whether the prompt has a cancel button or not.<br /><button
+          onclick='prompt({text: "This prompt does not have a cancel button", cancelbutton: false})'
+        >
+          Try it
+        </button>
+      </li>
+      <li>
+        <span id="code">backgroundclick</span> A boolean value indicating
+        whether clicking the background should cancel the prompt. Defaults to
+        false. <br /><button
+          onclick='prompt({text: "Click the background to get rid of this prompt", backgroundclick: true})'
+        >
+          Try it
+        </button>
+      </li>
+    </ul>
+    <h3>Callbacks</h3>
+    <p>
+      Each prompt/alert returns a promise, for
+      <span id="code">prompt()</span> the return value contains the
+      <span id="code">returnval</span> property of options, or the value of the
+      input. For <span id="code">alert()</span> it fulfills the promise after
+      the user clicks the close button.
+    </p>
+    <ul>
+      <h4>Using promises:</h4>
+      <li>
+        <span id="code"
+          >prompt("Test").then((value) => {alert(value)}).then(()=>{alert("You
+          clicked close on that alert")})</span
+        >
+        Using promises to chain a prompt then 2 alerts together.<br /><button
+          onclick='prompt("Test").then((value) => alert(value)).then(()=>{alert("You clicked close on that  alert")})'
+        >
+          Try it
+        </button>
+      </li>
+      <h4>Using callbacks</h4>
+      <li>
+        <span id="code"
+          >prompt("Test", (value) => {console.log(value)},
+          ()=>{console.log("There was an error")})</span
+        >
+        Use success and reject callbacks.<br /><button
+          onclick='prompt("Test", (value) => {console.log(value)}, ()=>{console.log("There was an error")})'
+        >
+          Try it
+        </button>
+      </li>
+      <h4>Using await&async</h4>
+      <li>
+        <span id="code"
+          >async function(){var val = await prompt(); console.log(val)}</span
+        >
+      </li>
+    </ul>
+  </body>
 </html>
 <style>
-	@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
-	* {
-		font-family: "Poppins", sans-serif;
-	}
-	body button {
-		cursor: pointer;
-		background: Transparent;
-		color: #333;
-		border: 1px solid lightgrey;
-		padding: 3px 5px;
-		border-radius: 4px;
-		margin-top: 5px;
-	}
-	body {
-		max-width: 500px;
-		display: block;
-		margin: 0 auto;
-		padding: 40px;
-	}
-	#code {
-		margin-top: 5px;
-		display: inline-block;
-		margin: 2px;
-		padding: 4px;
-		background: #0001;
-		border-radius: 3px;
-		font-family: "Courier New", Courier, monospace;
-		color: rgb(190, 0, 95);
-		font-size: 14px;
-	}
-	li {
-		display: block;
-		margin: 5px;
-	}
+  @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+  * {
+    font-family: "Poppins", sans-serif;
+  }
+  body button {
+    cursor: pointer;
+    background: Transparent;
+    color: #333;
+    border: 1px solid lightgrey;
+    padding: 3px 5px;
+    border-radius: 4px;
+    margin-top: 5px;
+  }
+  body {
+    max-width: 500px;
+    display: block;
+    margin: 0 auto;
+    padding: 40px;
+  }
+  #code {
+    margin-top: 5px;
+    display: inline-block;
+    margin: 2px;
+    padding: 4px;
+    background: #0001;
+    border-radius: 3px;
+    font-family: "Courier New", Courier, monospace;
+    color: rgb(190, 0, 95);
+    font-size: 14px;
+  }
+  li {
+    display: block;
+    margin: 5px;
+  }
 </style>
 <script>
-	var DEBUG = true;
-	if (!DEBUG) {
-		if (!window.console) window.console = {};
-		var methods = ["log", "debug", "warn", "info"];
-		for (var i = 0; i < methods.length; i++) {
-			console[methods[i]] = function () {};
-		}
-	}
+  var DEBUG = true;
+  if (!DEBUG) {
+    if (!window.console) window.console = {};
+    var methods = ["log", "debug", "warn", "info"];
+    for (var i = 0; i < methods.length; i++) {
+      console[methods[i]] = function () {};
+    }
+  }
 </script>
 <script>
-	function ripple() {
-		var buttons = document.querySelectorAll("button");
-		buttons.forEach((el) => {
-			el.setAttribute("data-ripple", "");
-		});
-		var elements = document.querySelectorAll("[data-ripple]");
-		for (let i = 0; i < elements.length; i++) {
-			const el = elements[i];
-			const time = (el.getAttribute("data-time") || 300) * 3;
-			const color = el.getAttribute("data-color") || "currentColor";
-			const opacity = el.getAttribute("data-opacity") || ".3";
-			const event = el.getAttribute("data-event") || "mousedown";
-			el.style.overflow = "hidden";
-			el.style.position = "relative";
-			el.addEventListener(event, (e) => {
-				var ripple_div = document.createElement("DIV");
-				ripple_div.style.position = "absolute";
-				ripple_div.style.background = `${color}`;
-				ripple_div.style.borderRadius = "50%";
-				var bx = el.getBoundingClientRect();
-				var largestdemensions;
-				if (bx.width > bx.height) {
-					largestdemensions = bx.width * 3;
-				} else {
-					largestdemensions = bx.height * 3;
-				}
-				ripple_div.style.zIndex = "1000";
-				ripple_div.style.height = `${largestdemensions}px`;
-				ripple_div.style.width = `${largestdemensions}px`;
-				ripple_div.style.transform = `translate(-50%, -50%) scale(0)`;
-				ripple_div.style.top = `${e.pageY - (bx.top + window.scrollY)}px`;
-				ripple_div.style.left = `${e.pageX - (bx.left + window.scrollX)}px`;
-				ripple_div.style.transition = `opacity ${time}ms ease, transform ${time}ms ease`;
-				ripple_div.removeAttribute("data-ripple");
-				ripple_div.style.opacity = opacity;
-				el.appendChild(ripple_div);
-				setTimeout(() => {
-					ripple_div.style.transform = `translate(-50%, -50%) scale(1)`;
-					ripple_div.style.opacity = "0";
-					setTimeout(() => {
-						ripple_div.remove();
-					}, time);
-				}, 50);
-			});
-		}
-	}
+  function ripple() {
+    var buttons = document.querySelectorAll("button");
+    buttons.forEach((el) => {
+      el.setAttribute("data-ripple", "");
+    });
+    var elements = document.querySelectorAll("[data-ripple]");
+    for (let i = 0; i < elements.length; i++) {
+      const el = elements[i];
+      const time = (el.getAttribute("data-time") || 300) * 3;
+      const color = el.getAttribute("data-color") || "currentColor";
+      const opacity = el.getAttribute("data-opacity") || ".3";
+      const event = el.getAttribute("data-event") || "mousedown";
+      el.style.overflow = "hidden";
+      el.style.position = "relative";
+      el.addEventListener(event, (e) => {
+        var ripple_div = document.createElement("DIV");
+        ripple_div.style.position = "absolute";
+        ripple_div.style.background = `${color}`;
+        ripple_div.style.borderRadius = "50%";
+        var bx = el.getBoundingClientRect();
+        var largestdemensions;
+        if (bx.width > bx.height) {
+          largestdemensions = bx.width * 3;
+        } else {
+          largestdemensions = bx.height * 3;
+        }
+        ripple_div.style.zIndex = "1000";
+        ripple_div.style.height = `${largestdemensions}px`;
+        ripple_div.style.width = `${largestdemensions}px`;
+        ripple_div.style.transform = `translate(-50%, -50%) scale(0)`;
+        ripple_div.style.top = `${e.pageY - (bx.top + window.scrollY)}px`;
+        ripple_div.style.left = `${e.pageX - (bx.left + window.scrollX)}px`;
+        ripple_div.style.transition = `opacity ${time}ms ease, transform ${time}ms ease`;
+        ripple_div.removeAttribute("data-ripple");
+        ripple_div.style.opacity = opacity;
+        el.appendChild(ripple_div);
+        setTimeout(() => {
+          ripple_div.style.transform = `translate(-50%, -50%) scale(1)`;
+          ripple_div.style.opacity = "0";
+          setTimeout(() => {
+            ripple_div.remove();
+          }, time);
+        }, 50);
+      });
+    }
+  }
 </script>
