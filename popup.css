@@ -4,6 +4,7 @@
     --background-filter: blur(10px);
     --transition-time: .3s;
     --button-bg: #17a2b7;
+    --button-bg-hover: #0e97ac;
     --button-bg-transparent: #17a2b733;
 }
 #popup,
@@ -77,7 +78,7 @@
   overflow-y: scroll;
 }
 #popup button:hover {
-  background: #0e97ac;
+  background: var(--button-bg-hover);
 }
 #popup button:disabled {
   opacity: 0.5;
