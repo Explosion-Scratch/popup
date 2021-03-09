@@ -3,6 +3,8 @@
     --hover-color: #333;
     --background-filter: blur(10px);
     --transition-time: .3s;
+    --button-bg: #17a2b7;
+    --button-bg-transparent: #17a2b733;
 }
 #popup,
 #popup * {
@@ -57,13 +59,13 @@
   box-shadow: 0 0 0 5px #0001;
 }
 #popup button:focus {
-  box-shadow: 0 0 0 5px #17a2b733;
+  box-shadow: 0 0 0 5px var(--button-bg-transparent);
 }
 #popup button {
   cursor: pointer;
   transition: background-color var(--transition-time) ease, box-shadow var(--transition-time) ease,
     opacity var(--transition-time) ease;
-  background: #17a2b7;
+  background: var(--button-bg);
   color: #fff;
   border: none;
   padding: 8px;
